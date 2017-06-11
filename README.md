@@ -1,1 +1,1 @@
-This project is written by angular and design by Bootstrap.
+This project is written by angularJS and design by Bootstrap.
