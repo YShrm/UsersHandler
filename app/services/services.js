@@ -53,13 +53,20 @@ usersApp.service('usersService', ['usersRepository', function (usersRepository) 
     };
 
     _this.getUser = function (id, callback) {
-        usersRepository.getUser({
-            Id: id
-        },
+        var userIndex = users.findIndex(function (t) {
+            return t.id == id
+        });
+        if (userIndex == -1) {
+            usersRepository.getUser({
+                Id: id
+            },
             function (data) {
                 if (callback != undefined)
                     callback(data);
             });
+        }else
+            if (callback != undefined)
+                callback(users[userIndex]);
     };
 
 
